@@ -24,14 +24,10 @@ jobs:
         with:
           channel: 'stable'
 
-      - name: Re-generate Full Flutter Android Project
+      - name: Generate Clean Android Native Project
         run: |
-          mkdir temp_app
-          cd temp_app
-          flutter create --org com.example powerdefend
-          cp -r powerdefend/android ../
-          cd ..
-          rm -rf temp_app
+          rm -rf android
+          flutter create --org com.example .
 
       - name: Get Dependencies
         run: flutter pub get
